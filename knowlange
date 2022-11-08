@@ -1,1 +1,15 @@
 制作本地developpod 和 远程pod的制作 经验
+
+
+1.想要实现 下面 这种 可以 进行clone 远程库到本地 进行 POD_USER 来加载不同的路径库
+
+def hj_share_pods
+      case ENV['POD_USER']
+      when 'gsy'
+         pod 'xxxlib', :path => '~/Developer/HJGitlab/HJKits/HJKitShare'
+        else
+         pod 'xxxlib', :git => 'git@gitlab.xxxxxxx/xxxlib.git'
+      end
+end
+
+# 可以使用如下命令： env POD_USER=gsy pod install --clean-install
